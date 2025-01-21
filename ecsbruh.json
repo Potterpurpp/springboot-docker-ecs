@@ -1,0 +1,92 @@
+{
+  "taskDefinitionArn": "arn:aws:ecs:ap-southeast-1:1112121213:task-definition/springboot-docker-ecs-example:1",
+  "containerDefinitions": [
+    {
+      "name": "springboot-example",
+      "image": "docker.io/potterpurpp/springboot-docker-aws-ecs:0.0.1-SNAPSHOT",
+      "cpu": 0,
+      "portMappings": [
+        {
+          "name": "springboot-example-80-tcp",
+          "containerPort": 80,
+          "hostPort": 80,
+          "protocol": "tcp",
+          "appProtocol": "http"
+        },
+        {
+          "name": "metrics-springboot",
+          "containerPort": 1099,
+          "hostPort": 1099,
+          "protocol": "tcp"
+        },
+        {
+          "name": "springboot-example-8080-tcp",
+          "containerPort": 8080,
+          "hostPort": 8080,
+          "protocol": "tcp"
+        }
+      ],
+      "essential": true,
+      "environment": [],
+      "environmentFiles": [],
+      "mountPoints": [],
+      "volumesFrom": [],
+      "ulimits": [],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/springboot-docker-ecs-example",
+          "mode": "non-blocking",
+          "awslogs-create-group": "true",
+          "max-buffer-size": "25m",
+          "awslogs-region": "ap-southeast-1",
+          "awslogs-stream-prefix": "ecs"
+        },
+        "secretOptions": []
+      },
+      "systemControls": []
+    }
+  ],
+  "family": "springboot-docker-ecs-example",
+  "executionRoleArn": "arn:aws:iam::1112121213:role/ecsTaskExecutionRole",
+  "networkMode": "awsvpc",
+  "revision": 1,
+  "volumes": [],
+  "status": "ACTIVE",
+  "requiresAttributes": [
+    {
+      "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+    },
+    {
+      "name": "ecs.capability.execution-role-awslogs"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+    },
+    {
+      "name": "ecs.capability.task-eni"
+    },
+    {
+      "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
+    }
+  ],
+  "placementConstraints": [],
+  "compatibilities": ["EC2", "FARGATE"],
+  "requiresCompatibilities": ["FARGATE"],
+  "cpu": "1024",
+  "memory": "3072",
+  "runtimePlatform": {
+    "cpuArchitecture": "X86_64",
+    "operatingSystemFamily": "LINUX"
+  },
+  "registeredAt": "2025-01-21T03:57:58.093Z",
+  "registeredBy": "arn:aws:iam::1112121213:user/potter@gmail.com",
+  "enableFaultInjection": false,
+  "tags": []
+}
